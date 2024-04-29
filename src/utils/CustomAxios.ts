@@ -2,8 +2,11 @@ import CustomAxios from 'axios';
 import {Alert, BackHandler} from 'react-native';
 import {storage} from './storage';
 
-// CustomAxios.defaults.baseURL = process.env.BASE_URL;
-CustomAxios.defaults.baseURL = 'http://192.168.1.7:3000/';
+CustomAxios.defaults.baseURL =
+  process.env.NODE_ENV === 'development'
+    ? 'http://192.168.1.7:3000/'
+    : 'https://hoatho.onrender.com/';
+// CustomAxios.defaults.baseURL = 'http://192.168.1.7:3000/';
 CustomAxios.defaults.timeout = 5000;
 CustomAxios.interceptors.request.use(async (config: any) => {
   config.headers = {
@@ -18,7 +21,6 @@ CustomAxios.interceptors.response.use(
     return response;
   },
   function (error: any) {
-    console.log('🚀 ~ error:', error);
     if (!error.response || error.response.status === 500) {
       Alert.alert('Lỗi mạng', 'Vui lòng kết nối mạng để tiếp tục', [
         {text: 'OK'},

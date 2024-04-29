@@ -6,6 +6,8 @@ import Navigation from './src/navigation';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
+  console.log(process.env.NODE_ENV);
+
   return (
     <>
       <StatusBar

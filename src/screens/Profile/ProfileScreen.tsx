@@ -10,11 +10,10 @@ import theme from '../../themes';
 import CustomAxios from '../../utils/CustomAxios';
 import {getLastName} from '../../utils/helps';
 import {storage} from '../../utils/storage';
-console.log('🚀 ~ moment:', moment);
+import {groups} from '../../utils/groups';
 
 const ProfileScreen = () => {
   const {user, authLogout} = useAuthStore();
-  console.log('🚀 ~ ProfileScreen ~ user:', user);
   const {showToast} = useToastStore();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -57,7 +56,9 @@ const ProfileScreen = () => {
           <Text h5 style={{fontWeight: 700}}>
             {user.name}({user.staff_id})
           </Text>
-          <Text h6>(Chức vụ)</Text>
+          <Text h6>
+            ({groups.find(group => group.value === user.group)?.label})
+          </Text>
         </View>
         <View style={{}}>
           <Text>Họ tên: {user.name}</Text>

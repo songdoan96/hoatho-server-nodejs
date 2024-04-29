@@ -120,6 +120,7 @@ import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {
   ActivityIndicator,
+  Alert,
   TextInput,
   TouchableOpacity,
   View,
@@ -171,11 +172,12 @@ const LoginScreen = () => {
     <View
       style={[
         globalStyles.center,
-        {flex: 1, width: '100%', paddingHorizontal: 10},
+        {flex: 1, width: '100%', paddingHorizontal: '5%'},
       ]}>
       <Text h3 textTransform="uppercase" bold style={{marginBottom: 10}}>
         Đăng nhập
       </Text>
+
       {errorMessage && (
         <Text error style={{paddingVertical: 10}}>
           {errorMessage}
@@ -186,6 +188,7 @@ const LoginScreen = () => {
         <TextInput
           id="staff_id"
           style={[globalStyles.formControl]}
+          autoCapitalize="characters"
           value={formData.staff_id}
           onChangeText={text => setFormData({...formData, staff_id: text})}
         />

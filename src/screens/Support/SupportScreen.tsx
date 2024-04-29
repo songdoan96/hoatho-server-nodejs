@@ -73,13 +73,13 @@ const SupportScreen = () => {
 
   async function handleSupport(help: string) {
     // let done = list.includes(help);
-    console.log(line, group);
 
     setLoading(true);
     try {
       const {data} = await CustomAxios.post('/support/add', {
         help,
-        // done,
+        line,
+        user_id: user._id,
       });
       console.log('🚀 ~ handleSupport ~ data:', data);
       // setList(data.list);
@@ -94,7 +94,12 @@ const SupportScreen = () => {
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }>
-      <View style={{paddingVertical: 10, height: '10%'}}>
+      <View
+        style={{
+          paddingVertical: 10,
+          height: '10%',
+          justifyContent: 'center',
+        }}>
         <Text h4 textTransform="uppercase" center>
           Yêu cầu hỗ trợ
         </Text>
@@ -138,72 +143,68 @@ const SupportScreen = () => {
           height: '50%',
           justifyContent: 'center',
         }}>
-        {line && (
-          <View
+        <View
+          style={{
+            width: '30%',
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+          }}>
+          <TouchableOpacity
             style={{
-              width: '30%',
-              justifyContent: 'space-evenly',
-              alignItems: 'center',
-            }}>
-            <TouchableOpacity
-              style={{
-                width: theme.SIZES.BUTTON_HELP_SIZE * 0.75,
-                height: theme.SIZES.BUTTON_HELP_SIZE * 0.75,
-                backgroundColor:
-                  group === 1 ? theme.COLORS.PRIMARY : theme.COLORS.SECONDARY,
-                borderRadius: 10,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-              onPress={() => setGroup(1)}>
-              <Text h6 color="#fff" textTransform="uppercase">
-                Cụm 1
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                width: theme.SIZES.BUTTON_HELP_SIZE * 0.75,
-                height: theme.SIZES.BUTTON_HELP_SIZE * 0.75,
-                backgroundColor:
-                  group === 2 ? theme.COLORS.PRIMARY : theme.COLORS.SECONDARY,
-                borderRadius: 10,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-              onPress={() => setGroup(2)}>
-              <Text h6 color="#fff" textTransform="uppercase">
-                Cụm 2
-              </Text>
-            </TouchableOpacity>
-          </View>
-        )}
-        {group && (
-          <View
-            style={{
-              width: '70%',
-              flexWrap: 'wrap',
-              flexDirection: 'row',
+              width: theme.SIZES.BUTTON_HELP_SIZE * 0.75,
+              height: theme.SIZES.BUTTON_HELP_SIZE * 0.75,
+              backgroundColor:
+                group === 1 ? theme.COLORS.PRIMARY : theme.COLORS.SECONDARY,
+              borderRadius: 10,
               justifyContent: 'center',
-              alignContent: 'center',
-              gap: 10,
-            }}>
-            {helpList.map(({help, name}) => (
-              <TouchableOpacity
-                key={help}
-                activeOpacity={0.6}
-                style={styles.helpBtnWrap}
-                onPress={() => handleSupport(help)}>
-                <View
-                  style={[
-                    styles.helpBtn,
-                    list?.includes(help) && styles.helpBtnActive,
-                  ]}>
-                  <Text style={styles.helpText}>{name}</Text>
-                </View>
-              </TouchableOpacity>
-            ))}
-          </View>
-        )}
+              alignItems: 'center',
+            }}
+            onPress={() => setGroup(1)}>
+            <Text h6 color="#fff" textTransform="uppercase">
+              Cụm 1
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              width: theme.SIZES.BUTTON_HELP_SIZE * 0.75,
+              height: theme.SIZES.BUTTON_HELP_SIZE * 0.75,
+              backgroundColor:
+                group === 2 ? theme.COLORS.PRIMARY : theme.COLORS.SECONDARY,
+              borderRadius: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            onPress={() => setGroup(2)}>
+            <Text h6 color="#fff" textTransform="uppercase">
+              Cụm 2
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View
+          style={{
+            width: '70%',
+            flexWrap: 'wrap',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignContent: 'center',
+            gap: 10,
+          }}>
+          {helpList.map(({help, name}) => (
+            <TouchableOpacity
+              key={help}
+              activeOpacity={0.6}
+              style={styles.helpBtnWrap}
+              onPress={() => handleSupport(help)}>
+              <View
+                style={[
+                  styles.helpBtn,
+                  list?.includes(help) && styles.helpBtnActive,
+                ]}>
+                <Text style={styles.helpText}>{name}</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
+        </View>
       </View>
     </ScrollView>
   );

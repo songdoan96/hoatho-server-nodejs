@@ -58,7 +58,7 @@ const TabNavigation = () => {
           ),
         }}
       />
-      {user?.position && (
+      {user?.group.startsWith('xuong') && (
         <Tab.Screen
           name="Support"
           component={SupportScreen}
@@ -75,6 +75,7 @@ const TabNavigation = () => {
           }}
         />
       )}
+
       <Tab.Screen
         name="Notification"
         component={NotificationScreen}
