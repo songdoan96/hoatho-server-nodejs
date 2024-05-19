@@ -1,4 +1,4 @@
-package com.app
+package com.hoatho.trieuphong
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
