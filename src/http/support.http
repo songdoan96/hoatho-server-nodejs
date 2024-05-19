@@ -1,0 +1,18 @@
+# baseURL
+@baseURL = http://localhost:3000
+
+###
+# Find All Users
+GET {{ baseURL }}/support/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MDU2Y2VhNTQ4NjFlZjFjYWZkZDQ2NSIsImlhdCI6MTcxMTY2ODgyMSwiZXhwIjoxNzExNjY4ODgxfQ.exTP4lIJFcnqnoEHMz-PgHXFP7_2XoK33dgXvTacSaE
+
+###
+# Create User
+POST {{ baseURL }}/support/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MDU2Y2VhNTQ4NjFlZjFjYWZkZDQ2NSIsImlhdCI6MTcxMTY2ODgyMSwiZXhwIjoxNzExNjY4ODgxfQ.exTP4lIJFcnqnoEHMz-PgHXFP7_2XoK33dgXvTacSaE
+
+{
+   
+}
+

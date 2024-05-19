@@ -1,0 +1,35 @@
+# baseURL
+@baseURL = http://localhost:3000
+
+###
+# User Signup
+POST {{ baseURL }}/auth/register
+Content-Type: application/json
+
+{
+    "staff_id": "TP001",
+    "name":"Doan Quang Song",
+    "password": "12345",
+    "birthday":"2024-05-05"
+}
+
+###
+# User Login
+POST {{ baseURL }}/auth/login
+Content-Type: application/json
+
+{
+    "staff_id": "tp001",
+    "password": "12345"
+}
+
+###
+# User Logout
+POST {{ baseURL }}/auth/logout
+Content-Type: application/json
+
+
+###
+GET {{ baseURL }}/auth/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MDIwN2VlNWI0NjBiNjE3Zjc5NmQ1MiIsImlhdCI6MTcxMTQ1NTk2NX0.lF0vx7drH5SnpOCqTlWCeP3MrDdC_SWEJqQe2uxdIWk
