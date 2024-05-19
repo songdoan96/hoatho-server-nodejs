@@ -1,4 +1,3 @@
-// import {RegisterFormType} from '../interfaces/AuthForm';
 export interface RegisterFormType {
   staff_id?: string;
   password?: string;
