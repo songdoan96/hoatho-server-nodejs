@@ -15,10 +15,10 @@ class AuthController {
       staff_id,
     });
     if (!existingUser) {
-      throw new HttpException(403, "Tài khoản không tồn tại");
+      throw new HttpException(403, { staff_id: "Tài khoản không tồn tại" });
     }
     const isMatchPassword = await bcrypt.compare(password, existingUser.password);
-    if (!isMatchPassword) throw new HttpException(401, "Mật khẩu chưa đúng");
+    if (!isMatchPassword) throw new HttpException(401, { password: "Mật khẩu chưa đúng" });
     existingUser.fcmToken = fcm_token ?? "";
 
     await existingUser.save();
