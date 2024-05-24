@@ -1,16 +1,10 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {
-  Home,
-  MainComponent,
-  NotificationBing,
-  User,
-} from 'iconsax-react-native';
 import React from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import FunctionScreen from '../screens/Function/FunctionScreen';
 import HomeScreen from '../screens/Home/HomeScreen';
 import NotificationScreen from '../screens/Notification/NotificationScreen';
 import ProfileScreen from '../screens/Profile/ProfileScreen';
-
 const Tab = createBottomTabNavigator();
 
 const TabNavigation = () => {
@@ -31,10 +25,10 @@ const TabNavigation = () => {
           tabBarLabel: 'Trang chủ',
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({size, color, focused}) => (
-            <Home
-              size={size}
+            <Ionicons
+              name={focused ? 'home' : 'home-outline'}
               color={color}
-              variant={focused ? 'Bold' : 'Broken'}
+              size={size}
             />
           ),
         }}
@@ -46,10 +40,10 @@ const TabNavigation = () => {
           tabBarLabel: 'Chức năng',
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({size, color, focused}) => (
-            <MainComponent
+            <Ionicons
+              name={focused ? 'wallet' : 'wallet-outline'}
               size={size}
               color={color}
-              variant={focused ? 'Bold' : 'Broken'}
             />
           ),
         }}
@@ -79,10 +73,10 @@ const TabNavigation = () => {
           tabBarLabel: 'Thông báo',
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({size, color, focused}) => (
-            <NotificationBing
-              size={size}
+            <Ionicons
+              name={focused ? 'notifications' : 'notifications-outline'}
               color={color}
-              variant={focused ? 'Bold' : 'Broken'}
+              size={size}
             />
           ),
         }}
@@ -95,10 +89,10 @@ const TabNavigation = () => {
           tabBarLabel: 'Tài khoản',
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({size, color, focused}) => (
-            <User
-              size={size}
+            <Ionicons
+              name={focused ? 'person' : 'person-outline'}
               color={color}
-              variant={focused ? 'Bold' : 'Broken'}
+              size={size}
             />
           ),
         }}
@@ -108,3 +102,74 @@ const TabNavigation = () => {
 };
 
 export default TabNavigation;
+// import {createMaterialBottomTabNavigator} from 'react-native-paper/react-navigation';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+
+// const Tab = createMaterialBottomTabNavigator();
+
+// export default function TabNavigation() {
+//   return (
+//     <Tab.Navigator barStyle={{height: 65, backgroundColor: 'red'}}>
+//       <Tab.Screen
+//         name="HomeScreen"
+//         component={HomeScreen}
+//         options={{
+//           tabBarLabel: 'Home',
+//           // eslint-disable-next-line react/no-unstable-nested-components
+//           tabBarIcon: ({color, focused}) => (
+//             <Ionicons
+//               name={focused ? 'home' : 'home-outline'}
+//               color={color}
+//               size={26}
+//             />
+//           ),
+//         }}
+//       />
+//       <Tab.Screen
+//         name="FunctionScreen"
+//         component={FunctionScreen}
+//         options={{
+//           tabBarLabel: 'Chức năng',
+//           // eslint-disable-next-line react/no-unstable-nested-components
+//           tabBarIcon: ({color, focused}) => (
+//             <Ionicons
+//               name={focused ? 'wallet' : 'wallet-outline'}
+//               size={26}
+//               color={color}
+//             />
+//           ),
+//         }}
+//       />
+//       <Tab.Screen
+//         name="NotificationScreen"
+//         component={NotificationScreen}
+//         options={{
+//           tabBarLabel: 'Thông báo',
+//           // eslint-disable-next-line react/no-unstable-nested-components
+//           tabBarIcon: ({color, focused}) => (
+//             <Ionicons
+//               name={focused ? 'notifications' : 'notifications-outline'}
+//               color={color}
+//               size={26}
+//             />
+//           ),
+//         }}
+//       />
+//       <Tab.Screen
+//         name="ProfileScreen"
+//         component={ProfileScreen}
+//         options={{
+//           tabBarLabel: 'Tài khoản',
+//           // eslint-disable-next-line react/no-unstable-nested-components
+//           tabBarIcon: ({color, focused}) => (
+//             <Ionicons
+//               name={focused ? 'person' : 'person-outline'}
+//               color={color}
+//               size={26}
+//             />
+//           ),
+//         }}
+//       />
+//     </Tab.Navigator>
+//   );
+// }

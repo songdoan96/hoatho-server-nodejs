@@ -14,6 +14,7 @@ interface User {
 interface AuthState {
   auth: User | null;
   authLogin: (user: any) => void;
+  authLogout: () => void;
 }
 
 const useAuthStore = create<AuthState>()(set => ({
