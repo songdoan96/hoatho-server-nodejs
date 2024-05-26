@@ -19,7 +19,7 @@ class AuthController {
     }
     const isMatchPassword = await bcrypt.compare(password, existingUser.password);
     if (!isMatchPassword) throw new HttpException(401, { password: "Mật khẩu chưa đúng" });
-    existingUser.fcmToken = fcm_token ?? "";
+    existingUser.fcm_token = fcm_token ?? "";
 
     await existingUser.save();
     res.json({
