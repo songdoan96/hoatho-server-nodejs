@@ -51,7 +51,7 @@ class AuthController {
     await newUser.save();
 
     res.status(200).json({
-      message: "Tạo tài khoản thành công",
+      message: "Tạo tài khoản thành công, đăng nhập để tiếp tục",
       data: newUser,
     });
   });
