@@ -144,10 +144,12 @@ import {LoginSchema} from '../../validation/AuthSchema';
 import storage from '../../utils/storage';
 import useAuthStore from '../../store/AuthStore';
 import useToastStore from '../../store/ToastStore';
+import messaging from '@react-native-firebase/messaging';
 
 type FormData = {
   staff_id: string;
   password: string;
+  fcm_token?: string;
 };
 
 const LoginScreen = () => {
@@ -188,10 +190,11 @@ const LoginScreen = () => {
     },
   });
 
-  const onSubmit = () =>
+  const onSubmit = async () =>
     mutate({
       staff_id: getValues('staff_id'),
       password: getValues('password'),
+      fcm_token: await messaging().getToken(),
     });
 
   return (

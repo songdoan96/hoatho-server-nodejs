@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "664084369144",
+    "project_id": "hoa-tho-b4b20",
+    "storage_bucket": "hoa-tho-b4b20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664084369144:android:01af69ca6431ed16a0750d",
+        "android_client_info": {
+          "package_name": "com.hoatho.trieuphong"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVGM3Mx_SIL67rLTwpdNStNUmZJdNC5SA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
