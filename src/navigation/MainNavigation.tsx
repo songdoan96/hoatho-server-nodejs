@@ -16,7 +16,14 @@ const MainNavigation = () => {
         component={TabNavigation}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="NewsScreen" component={NewsScreen} />
+      <Stack.Screen
+        name="NewsScreen"
+        component={NewsScreen}
+        options={{
+          title: 'Tin tức',
+          headerTitleAlign: 'center',
+        }}
+      />
       {/* <Stack.Screen name="News" component={NewsScreen} />
       <Stack.Screen
         name="AddNew"
